@@ -40,10 +40,15 @@
 </p>
 
 <p align="center">
+<a href="#rocket-environment">Environment</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#computer-languages">Languages</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#books-technologies">Technologies</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#memo-license">License</a>
 </p>
+
+## :rocket: Environment
+
+- **https://atp-be-the-hero.herokuapp.com/**
 
 ## :computer: Languages
 
@@ -53,15 +58,11 @@
 
 ## :books: Technologies
 
-* **@testing-library/jest-dom**: ^4.2.4
-* **@testing-library/react**: ^9.3.2
-* **@testing-library/user-event**: ^7.1.2
-* **axios**: ^0.19.2
-* **react**: ^16.13.1
-* **react-dom**: ^16.13.1
-* **react-icons**: ^3.9.0
-* **react-router-dom**: ^5.1.2
-* **react-scripts**: 3.4.1
+- **Only Pure Languages :wink:**
+
+**devDependencies**
+
+- **Only Pure Languages :wink:**
 
 ## :memo: License
 
