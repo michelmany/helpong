@@ -1,57 +1,48 @@
-import React, { useEffect, useState } from 'react'
-import { Feather } from '@expo/vector-icons'
-import { useNavigation } from '@react-navigation/native'
-import formatAmount from '../../utils/formatAmount'
-import api from '../../services/api'
+import React, { useEffect, useState } from "react";
+import { Feather } from "@expo/vector-icons";
+import { useNavigation } from "@react-navigation/native";
+import formatAmount from "../../utils/formatAmount";
+import api from "../../services/api";
 
-import { 
-  FlatList,
-  View,
-  Image,
-  Text,
-  TouchableOpacity
-} from 'react-native'
+import { FlatList, View, Image, Text, TouchableOpacity } from "react-native";
 
-import logo from '../../assets/logo.png'
+import logo from "../../assets/logo.png";
 
-import styles from './styles'
+import styles from "./styles";
 
-export default function Incidents () {
-  const [incidents, setIncidents] = useState([])
-  const [total, setTotal] = useState(0)
-  const [page, setPage] = useState(1)
-  const [loading, setLoading] = useState(false)
+export default function Incidents() {
+  const [incidents, setIncidents] = useState([]);
+  const [total, setTotal] = useState(0);
+  const [page, setPage] = useState(1);
+  const [loading, setLoading] = useState(false);
 
-  const navigation = useNavigation()
+  const navigation = useNavigation();
 
-  async function loadIncidents () {
-    const isLastPage = total > 0 && incidents.length === total
+  async function loadIncidents() {
+    const isLastPage = total > 0 && incidents.length === total;
 
-    if (loading)
-        return
-    
-    if (isLastPage)
-        return
-    
-    setLoading(true)
+    if (loading) return;
 
-    const { data, headers } =
-      await api.get('/incidents', {
-        params: { page }
-      })
-    
-    setIncidents([...incidents, ...data])
-    setTotal(headers['x-total-count'])
-    setPage(page + 1)
-    setLoading(false)
+    if (isLastPage) return;
+
+    setLoading(true);
+
+    const { data, headers } = await api.get("/incidents", {
+      params: { page }
+    });
+
+    setIncidents([...incidents, ...data]);
+    setTotal(headers["x-total-count"]);
+    setPage(page + 1);
+    setLoading(false);
   }
 
   useEffect(() => {
-    loadIncidents()
-  }, [])
+    loadIncidents();
+  }, []);
 
-  function navigateToDetail (incident) {
-    navigation.navigate('Detail', { incident })
+  function navigateToDetail(incident) {
+    navigation.navigate("Detail", { incident });
   }
 
   return (
@@ -77,19 +68,14 @@ export default function Incidents () {
           <View style={styles.incident}>
             <Text style={styles.incidentProperty}>NGO:</Text>
             <Text style={styles.incidentValue}>{incident.name}</Text>
-            
+
             <Text style={styles.incidentProperty}>Incident:</Text>
             <Text style={styles.incidentValue}>{incident.title}</Text>
-            
-            <Text style={styles.incidentProperty}>Amount:</Text>
-            <Text style={styles.incidentValue}>
-              {formatAmount(incident.amount)}
-            </Text>
 
-            <TouchableOpacity
-              style={styles.detailsButton}
-              onPress={() => navigateToDetail(incident)}
-            >
+            <Text style={styles.incidentProperty}>Amount:</Text>
+            <Text style={styles.incidentValue}>{formatAmount(incident.amount)}</Text>
+
+            <TouchableOpacity style={styles.detailsButton} onPress={() => navigateToDetail(incident)}>
               <Text style={styles.detailsButtonText}>See more details</Text>
 
               <Feather name="arrow-right" size={16} color="#E02041" />
@@ -98,5 +84,5 @@ export default function Incidents () {
         )}
       />
     </View>
-  )
+  );
 }
