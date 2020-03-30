@@ -1,0 +1,25 @@
+{
+  "name": "be-the-hero",
+  "version": "0.0.1",
+  "description": "App to help NGOs built with ReactJS, React Native, Node.js and more.",
+  "main": "",
+  "scripts": {
+    "dev:server": "cd backend && yarn start:dev",
+    "dev:server:build": "cd backend && yarn build",
+    "dev:web": "cd website && yarn start",
+    "dev:mobile": "cd mobile && yarn start",
+    "test:server": "cd backend && yarn test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/michelmany/helpong.git"
+  },
+  "keywords": [],
+  "author": "Michel Moraes <michel@nitdesign.com.br>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/michelmany/helpong/issues"
+  },
+  "homepage": "https://github.com/michelmany/helpong#readme",
+  "devDependencies": {}
+}

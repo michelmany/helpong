@@ -1,13 +1,24 @@
-// Update with your config settings.
+const { resolve } = require("path");
 
 module.exports = {
   development: {
     client: "sqlite3",
     connection: {
-      filename: "./src/database/db.sqlite"
+      filename: resolve(__dirname, "src", "database", "db.sqlite")
     },
     migrations: {
-      directory: "./src/database/migrations"
+      directory: resolve(__dirname, "src", "database", "migrations")
+    },
+    useNullAsDefault: true
+  },
+
+  test: {
+    client: "sqlite3",
+    connection: {
+      filename: resolve(__dirname, "src", "database", "test.sqlite")
+    },
+    migrations: {
+      directory: resolve(__dirname, "src", "database", "migrations")
     },
     useNullAsDefault: true
   },
@@ -29,18 +40,13 @@ module.exports = {
   },
 
   production: {
-    client: "postgresql",
+    client: "sqlite3",
     connection: {
-      database: "my_db",
-      user: "username",
-      password: "password"
-    },
-    pool: {
-      min: 2,
-      max: 10
+      filename: resolve(__dirname, "src", "database", "db.sqlite")
     },
     migrations: {
-      tableName: "knex_migrations"
-    }
+      directory: resolve(__dirname, "src", "database", "migrations")
+    },
+    useNullAsDefault: true
   }
 };
